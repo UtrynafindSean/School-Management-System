@@ -34,7 +34,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
-    "prisma": "8.0.0-rc.18",
+    "prisma": "^8.0.0-rc.24",
     "prisma7": "npm:prisma@7.10.0",
     "tailwindcss": "^4",
     "temporal-polyfill": "^1.0.6",
