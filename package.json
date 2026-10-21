@@ -37,6 +37,7 @@
     "prisma": "8.0.0-rc.18",
     "prisma7": "npm:prisma@7.10.0",
     "tailwindcss": "^4",
+    "temporal-polyfill": "^1.0.6",
     "typescript": "^5"
   }
 }
