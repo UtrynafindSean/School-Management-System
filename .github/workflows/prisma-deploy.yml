@@ -1,0 +1,30 @@
+name: prisma-deploy
+
+on:
+  push:
+    branches:
+      - main
+
+concurrency:
+  group: prisma-deploy-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    if: github.ref_type == 'branch'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: oven-sh/setup-bun@v2
+      - uses: prisma/cloud-deploy-action@v1
+        with:
+          build-command: npm run build
+          module: module.ts

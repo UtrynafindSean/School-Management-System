@@ -2,15 +2,16 @@
   "name": "school-management-app",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "next dev",
+    "prebuild": "npm run db:generate",
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "postinstall": "prisma generate --config prisma7.config.ts",
-    "db:validate": "prisma validate --config prisma7.config.ts",
-    "db:generate": "prisma generate --config prisma7.config.ts",
-    "db:migrate": "prisma migrate dev --config prisma7.config.ts"
+    "db:validate": "node ./node_modules/prisma7/build/index.js validate --config prisma7.config.ts",
+    "db:generate": "node ./node_modules/prisma7/build/index.js generate --config prisma7.config.ts",
+    "db:migrate": "node ./node_modules/prisma7/build/index.js migrate dev --config prisma7.config.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.14",
@@ -20,17 +21,21 @@
     "dotenv": "^18.0.7",
     "next": "16.4.0",
     "pg": "^8.23.1",
-    "prisma": "^7.10.0",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
+    "@prisma/composer": "0.32.0",
+    "@prisma/composer-prisma-cloud": "0.32.0",
+    "@prisma/orm-postgres": "8.0.0-rc.18",
     "@tailwindcss/turbopack": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.0",
+    "prisma": "8.0.0-rc.18",
+    "prisma7": "npm:prisma@7.10.0",
     "tailwindcss": "^4",
     "typescript": "^5"
   }

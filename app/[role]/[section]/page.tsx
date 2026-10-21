@@ -1,6 +1,8 @@
 import { notFound } from "next/navigation";
 import { PortalShell, type SchoolRole } from "@/components/portal-shell";
 
+export const instant = false;
+
 const roles: Record<string, SchoolRole> = { admin: "Admin", teacher: "Teacher", student: "Student", parent: "Parent" };
 const labels: Record<string, string> = {
   students: "Students", teachers: "Teachers", attendance: "Attendance", results: "Results & exams", fees: "Fees & payments",

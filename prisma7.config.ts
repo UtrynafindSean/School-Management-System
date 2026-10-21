@@ -1,5 +1,5 @@
 import { config } from "dotenv";
-import { defineConfig } from "prisma/config";
+import { defineConfig } from "prisma7/config";
 
 config({ path: ".env.local" });
 const databaseUrl =
