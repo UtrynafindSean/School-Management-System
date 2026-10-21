@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { auth, currentUser } from "@clerk/nextjs/server";
 import { MembershipRole, MembershipStatus } from "@/generated/prisma/enums";
 import { getPrisma } from "@/lib/prisma";
@@ -11,7 +12,23 @@ const messages: Record<string, string> = {
   "setup-failed": "We could not finish setup. Please try again or contact support.",
 };
 
-export default async function SetupPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+export default function SetupPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+  return (
+    <Suspense
+      fallback={
+        <main className="setup-page">
+          <section className="setup-card">
+            <p>Loading school setup…</p>
+          </section>
+        </main>
+      }
+    >
+      <SetupContent searchParams={searchParams} />
+    </Suspense>
+  );
+}
+
+async function SetupContent({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   const { userId } = await auth();
   if (!userId) redirect("/login");
 
