@@ -29,3 +29,5 @@ jobs:
         with:
           build-command: npm run build
           module: module.ts
+        env:
+          PRISMA_SERVICE_TOKEN: ${{ secrets.PRISMA_SERVICE_TOKEN }}
