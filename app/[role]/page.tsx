@@ -11,10 +11,10 @@ const roles: Record<string, SchoolRole> = {
 };
 
 const summaries: Record<SchoolRole, { heading: string; intro: string; labels: string[] }> = {
-  Admin: { heading: "School overview", intro: "Your school’s records and activity will appear here when the database is connected.", labels: ["Students", "Teachers", "Parents", "Administrators"] },
-  Teacher: { heading: "Teaching overview", intro: "Your timetable, classes, attendance, and assessments will appear here after sign-in is connected.", labels: ["My lessons", "My classes", "Attendance", "Assessments"] },
-  Student: { heading: "Learning overview", intro: "Your timetable, assignments, results, and announcements will appear here after sign-in is connected.", labels: ["Timetable", "Assignments", "Results", "Attendance"] },
-  Parent: { heading: "Family overview", intro: "Your children’s school updates and balances will appear here after sign-in is connected.", labels: ["Children", "Timetables", "Updates", "Fee balances"] },
+  Admin: { heading: "School overview", intro: "Your school workspace is ready. Add school records as each management feature becomes available.", labels: ["Students", "Teachers", "Parents", "Administrators"] },
+  Teacher: { heading: "Teaching overview", intro: "Your timetable, classes, attendance, and assessments will appear here as those records are added.", labels: ["My lessons", "My classes", "Attendance", "Assessments"] },
+  Student: { heading: "Learning overview", intro: "Your timetable, assignments, results, and announcements will appear here as those records are added.", labels: ["Timetable", "Assignments", "Results", "Attendance"] },
+  Parent: { heading: "Family overview", intro: "Your children’s school updates and balances will appear here as those records are added.", labels: ["Children", "Timetables", "Updates", "Fee balances"] },
 };
 
 export default async function RoleDashboard({ params }: { params: Promise<{ role: string }> }) {
@@ -32,12 +32,12 @@ export default async function RoleDashboard({ params }: { params: Promise<{ role
         {content.labels.map((label) => <article className="setup-tile" key={label}><span>{label}</span><strong aria-label="Not connected">—</strong></article>)}
       </section>
       <section className="setup-card">
-        <h2>Getting the portal ready</h2>
-        <p>This screen is a design-aligned shell. Clerk authentication, PostgreSQL records, and server-side role permissions will be added before any school data is shown.</p>
+        <h2>Next steps for your school</h2>
+        <p>Your administrator account and school workspace are set up. The next implementation steps are to add the school profile, student and staff records, and attendance, results, and fee workflows.</p>
         <ol className="next-list">
-          <li className="next-item"><span className="next-number">1</span><span>Connect account sign-in and verify the user’s role on the server.</span></li>
-          <li className="next-item"><span className="next-number">2</span><span>Connect the database and load only the records this role may see.</span></li>
-          <li className="next-item"><span className="next-number">3</span><span>Replace these empty states with the approved dashboard content.</span></li>
+          <li className="next-item"><span className="next-number">1</span><span>Complete the school profile and academic year.</span></li>
+          <li className="next-item"><span className="next-number">2</span><span>Add student, teacher, and class records.</span></li>
+          <li className="next-item"><span className="next-number">3</span><span>Connect attendance, results, and fee workflows.</span></li>
         </ol>
       </section>
     </PortalShell>

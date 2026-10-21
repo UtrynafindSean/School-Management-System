@@ -89,7 +89,7 @@ export function PortalShell({ role, children, section = "" }: { role: SchoolRole
         <ul className="nav-list">{renderItems(items.workspace)}</ul>
         <div className="nav-heading">Management</div>
         <ul className="nav-list">{renderItems(items.management)}</ul>
-        <div className="sidebar-bottom">Secure access is being connected. Role permissions will be enforced by the server.</div>
+        <div className="sidebar-bottom">School access is protected. Add school records as you set up the portal.</div>
       </aside>
 
       <main className="portal-main">
@@ -99,7 +99,7 @@ export function PortalShell({ role, children, section = "" }: { role: SchoolRole
           <div className="topbar-right"><span>Preview</span><span className="avatar" aria-hidden="true">{role.slice(0, 1).toUpperCase()}</span></div>
         </header>
         <div className="portal-content">
-          <div className="preview-banner"><span className="preview-dot" aria-hidden="true" /><span>Preview only. Sign-in, role checks, and school data are not connected yet.</span></div>
+          <div className="preview-banner"><span className="preview-dot" aria-hidden="true" /><span>Your school workspace is ready. Dashboard records will appear as school management features are connected.</span></div>
           {children}
         </div>
       </main>

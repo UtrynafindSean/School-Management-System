@@ -24,6 +24,7 @@ export default function LoginPage() {
           <p className="login-intro">Enter the credentials provided by your school administrator.</p>
           {clerkConfigured ? (
             <SignIn
+              forceRedirectUrl="/setup"
               appearance={{
                 elements: {
                   rootBox: { width: "100%" },

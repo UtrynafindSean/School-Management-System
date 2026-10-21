@@ -11,7 +11,8 @@
     "lint": "eslint",
     "db:validate": "node ./node_modules/prisma7/build/index.js validate --config prisma7.config.ts",
     "db:generate": "node ./node_modules/prisma7/build/index.js generate --config prisma7.config.ts",
-    "db:migrate": "node ./node_modules/prisma7/build/index.js migrate dev --config prisma7.config.ts"
+    "db:migrate": "node ./node_modules/prisma7/build/index.js migrate dev --config prisma7.config.ts",
+    "db:migrate:deploy": "node ./node_modules/prisma7/build/index.js migrate deploy --config prisma7.config.ts"
   },
   "dependencies": {
     "@clerk/nextjs": "^7.9.14",
